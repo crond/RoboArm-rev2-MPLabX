@@ -103,3 +103,6 @@ void state_machine();
 void getPWMvalue();
  void changeMode();
  void delay(int);
+ int eeprom_test();
+ unsigned char eeprom_read_custom( unsigned char badd );
+  void eeprom_write_custom( unsigned char badd,unsigned int bdata );

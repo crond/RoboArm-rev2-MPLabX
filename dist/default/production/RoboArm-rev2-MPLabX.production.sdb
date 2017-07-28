@@ -1,0 +1,370 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4431 ]
+[d frameptr 4065 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\eeprom.c
+[v _eeprom_test eeprom_test `(i  1 e 2 0 ]
+"59
+[v _eeprom_read_custom eeprom_read_custom `(uc  1 e 1 0 ]
+"89 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\main.c
+[v _delay delay `(v  1 e 1 0 ]
+"100
+[v _main main `(v  1 e 1 0 ]
+"144
+[v _state_machine state_machine `(v  1 e 1 0 ]
+"8 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\uart.c
+[v _eusart_init eusart_init `(v  1 e 1 0 ]
+"39
+[v _uart_send_byte uart_send_byte `(v  1 e 1 0 ]
+"48
+[v _uart_recv_byte uart_recv_byte `(uc  1 e 1 0 ]
+"57
+[v _debug debug `(v  1 e 1 0 ]
+"71
+[v _processSerialData processSerialData `(v  1 e 1 0 ]
+"110
+[v _changeMode changeMode `(v  1 e 1 0 ]
+"133
+[v _getPWMvalue getPWMvalue `(v  1 e 1 0 ]
+"757 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
+[v _PWMCON0 PWMCON0 `VEuc  1 e 1 @3951 ]
+"897
+[v _PTPERH PTPERH `VEuc  1 e 1 @3962 ]
+"904
+[v _PTPERL PTPERL `VEuc  1 e 1 @3963 ]
+"911
+[v _PTMRH PTMRH `VEuc  1 e 1 @3964 ]
+"918
+[v _PTMRL PTMRL `VEuc  1 e 1 @3965 ]
+"925
+[v _PTCON1 PTCON1 `VEuc  1 e 1 @3966 ]
+"952
+[v _PTCON0 PTCON0 `VEuc  1 e 1 @3967 ]
+[s S65 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"1075
+[s S74 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 AN4 1 0 :1:4 
+`uc 1 AN5 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S83 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S91 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S95 . 1 `S65 1 . 1 0 `S74 1 . 1 0 `S83 1 . 1 0 `S91 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES95  1 e 1 @3968 ]
+"2271
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"2493
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"2715
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2937
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S239 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"4125
+[s S248 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S251 . 1 `S239 1 . 1 0 `S248 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES251  1 e 1 @4006 ]
+"4170
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"4177
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"4184
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+"4196
+[v _BAUDCTL BAUDCTL `VEuc  1 e 1 @4010 ]
+"4371
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"4581
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+"4837
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"4849
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"4861
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"5232
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"5318
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
+"6117
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+"6215
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"6700
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S268 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7337
+[s S277 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S286 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S290 . 1 `S268 1 . 1 0 `S277 1 . 1 0 `S286 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES290  1 e 1 @4082 ]
+"7712
+[v _BRG16 BRG16 `VEb  1 e 0 @32083 ]
+"7802
+[v _CFGS CFGS `VEb  1 e 0 @32054 ]
+"7892
+[v _EEPGD EEPGD `VEb  1 e 0 @32055 ]
+"8450
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"8802
+[v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
+"8804
+[v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
+"8884
+[v _TXIF TXIF `VEb  1 e 0 @31988 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+[v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
+"362
+[v _hexpowers hexpowers `C[4]ui  1 s 8 hexpowers ]
+"2 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\eeprom.c
+[v _readByte readByte `ui  1 e 2 0 ]
+"98 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\main.c
+[v _state state `uc  1 e 1 0 ]
+"2 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\uart.c
+[v _uartBuffer uartBuffer `[8]uc  1 e 8 0 ]
+"3
+[v _recvIdx recvIdx `i  1 e 2 0 ]
+"4
+[v _testPWMValue testPWMValue `i  1 e 2 0 ]
+"5
+[v _ch ch `uc  1 s 1 ch ]
+[v _ch2 ch2 `uc  1 s 1 ch2 ]
+"100 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"141
+} 0
+"144
+[v _state_machine state_machine `(v  1 e 1 0 ]
+{
+"146
+[v state_machine@flag flag `uc  1 s 1 flag ]
+"162
+} 0
+"133 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\uart.c
+[v _getPWMvalue getPWMvalue `(v  1 e 1 0 ]
+{
+"144
+} 0
+"71
+[v _processSerialData processSerialData `(v  1 e 1 0 ]
+{
+"109
+} 0
+"48
+[v _uart_recv_byte uart_recv_byte `(uc  1 e 1 0 ]
+{
+"56
+} 0
+"27 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+{
+"31
+[v memcpy@s s `*.39Cuc  1 a 2 8 ]
+"30
+[v memcpy@d d `*.39uc  1 a 2 6 ]
+"32
+[v memcpy@tmp tmp `uc  1 a 1 10 ]
+"27
+[v memcpy@d1 d1 `*.39v  1 p 2 0 ]
+[v memcpy@s1 s1 `*.39Cv  1 p 2 2 ]
+[v memcpy@n n `ui  1 p 2 4 ]
+"41
+} 0
+"8 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\uart.c
+[v _eusart_init eusart_init `(v  1 e 1 0 ]
+{
+[v eusart_init@usart_mode usart_mode `uc  1 a 1 wreg ]
+[v eusart_init@usart_mode usart_mode `uc  1 a 1 wreg ]
+[v eusart_init@tx_mode tx_mode `uc  1 p 1 0 ]
+"9
+[v eusart_init@fosc fosc `ul  1 p 4 1 ]
+[v eusart_init@baud baud `ui  1 p 2 5 ]
+"11
+[v eusart_init@usart_mode usart_mode `uc  1 a 1 7 ]
+"37
+} 0
+"4 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\eeprom.c
+[v _eeprom_test eeprom_test `(i  1 e 2 0 ]
+{
+"7
+[v eeprom_test@i i `i  1 a 2 29 ]
+"6
+[v eeprom_test@address address `uc  1 a 1 28 ]
+[v eeprom_test@ch ch `uc  1 a 1 27 ]
+"58
+} 0
+"492 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+"1500
+[v sprintf@idx idx `uc  1 a 1 19 ]
+"528
+[v sprintf@val val `ui  1 a 2 24 ]
+"494
+[v sprintf@ap ap `[1]*.39v  1 a 2 20 ]
+"499
+[v sprintf@c c `c  1 a 1 26 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 23 ]
+"506
+[v sprintf@prec prec `c  1 a 1 22 ]
+"492
+[v sprintf@sp sp `*.39uc  1 p 2 12 ]
+[v sprintf@f f `*.25Cuc  1 p 2 14 ]
+"1541
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 7 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+"31
+} 0
+"59 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\eeprom.c
+[v _eeprom_read_custom eeprom_read_custom `(uc  1 e 1 0 ]
+{
+[v eeprom_read_custom@badd badd `uc  1 a 1 wreg ]
+[v eeprom_read_custom@badd badd `uc  1 a 1 wreg ]
+"61
+[v eeprom_read_custom@badd badd `uc  1 a 1 0 ]
+"67
+} 0
+"110 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\uart.c
+[v _changeMode changeMode `(v  1 e 1 0 ]
+{
+"132
+} 0
+"57
+[v _debug debug `(v  1 e 1 0 ]
+{
+"59
+[v debug@i i `i  1 a 2 12 ]
+[v debug@len len `i  1 a 2 10 ]
+"57
+[v debug@str str `*.35uc  1 p 2 6 ]
+"70
+} 0
+"39
+[v _uart_send_byte uart_send_byte `(v  1 e 1 0 ]
+{
+[v uart_send_byte@byte byte `uc  1 a 1 wreg ]
+[v uart_send_byte@byte byte `uc  1 a 1 wreg ]
+[v uart_send_byte@byte byte `uc  1 a 1 5 ]
+"47
+} 0
+"89 F:\root\Robotics\Robo ARM rev2\roboARM-rev2-mplabX\RoboArm-rev2-MPLabX\main.c
+[v _delay delay `(v  1 e 1 0 ]
+{
+"91
+[v delay@i i `i  1 a 2 3 ]
+"89
+[v delay@count count `i  1 p 2 0 ]
+"97
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"6
+[v strlen@cp cp `*.35Cuc  1 a 2 4 ]
+"4
+[v strlen@s s `*.35Cuc  1 p 2 0 ]
+"13
+} 0

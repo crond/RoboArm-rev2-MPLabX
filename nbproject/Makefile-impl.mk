@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=roboARM-rev2.X
+PROJECTNAME=RoboArm-rev2-MPLabX
 
 # Active Configuration
 DEFAULTCONF=default

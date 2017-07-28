@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/roboARM-rev2.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=roboARM-rev2.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=roboarm-rev2.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/RoboArm-rev2-MPLabX.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=RoboArm-rev2-MPLabX.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=roboarm-rev2-mplabx/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/roboarm-rev2.x/bin
+makeDirectory ${TMPDIR}/roboarm-rev2-mplabx/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/roboarm-rev2.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/roboarm-rev2-mplabx.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/roboarm-rev2.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/roboarm-rev2-mplabx.tar *
 checkReturnCode
 
 # Cleanup

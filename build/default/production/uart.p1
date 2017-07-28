@@ -3377,6 +3377,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;config.h: 103: void getPWMvalue();
 [; ;config.h: 104: void changeMode();
 [; ;config.h: 105: void delay(int);
+[; ;config.h: 106: int eeprom_test();
+[; ;config.h: 107: unsigned char eeprom_read_custom( unsigned char badd );
+[; ;config.h: 108: void eeprom_write_custom( unsigned char badd,unsigned int bdata );
 "2 uart.c
 [v _uartBuffer `uc ~T0 @X0 -> 8 `i e ]
 [; ;uart.c: 2: char uartBuffer[8];

@@ -123,13 +123,14 @@ void main(void) {
 	PTCON1	=0x80;
 
 	eusart_init(ASYNC_MODE, TX_8_BIT, 8000000UL, 9600);
+    eeprom_test();
     while(1)
     {
      //   ch=uart_recv_byte(NONBLOCK);
     //    uart_send_byte(ch);
         
               
-       
+        
         processSerialData();                
          changeMode();
         state_machine();

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\roboARM-rev2.X.production.hex">
+  <executable name="dist/default/production\RoboArm-rev2-MPLabX.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>16384</length>
-      <used>1651</used>
-      <free>14733</free>
+      <used>2159</used>
+      <free>14225</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>768</length>
-      <used>49</used>
-      <free>719</free>
+      <used>56</used>
+      <free>712</free>
     </memory>
   </executable>
 </project>

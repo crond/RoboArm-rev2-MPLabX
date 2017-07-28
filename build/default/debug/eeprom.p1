@@ -1,39 +1,51 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"8802 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
-[v _TRISC6 `Vb ~T0 @X0 0 e@31910 ]
-"8804
-[v _TRISC7 `Vb ~T0 @X0 0 e@31911 ]
-"7712
-[v _BRG16 `Vb ~T0 @X0 0 e@32083 ]
-"4196
-[v _BAUDCTL `Vuc ~T0 @X0 0 e@4010 ]
-"4861
-[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
-"4581
-[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
-"4371
-[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
-"8884
-[v _TXIF `Vb ~T0 @X0 0 e@31988 ]
-"4837
-[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"105 config.h
+"7892 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
+[v _EEPGD `Vb ~T0 @X0 0 e@32055 ]
+"7802
+[v _CFGS `Vb ~T0 @X0 0 e@32054 ]
+"100 config.h
+[v _debug `(v ~T0 @X0 0 ef1`*uc ]
+"108
+[v _eeprom_write_custom `(v ~T0 @X0 0 ef2`uc`Bui ]
+"105
 [v _delay `(v ~T0 @X0 0 ef1`i ]
-"8450 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
-[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"4849
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"56 C:\Program Files (x86)\Microchip\xc8\v1.42\include\string.h
-[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
-"43 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
-"6 uart.c
-[v _state `uc ~T0 @X0 0 e ]
-"14 C:\Program Files (x86)\Microchip\xc8\v1.42\include\string.h
-[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+"107
+[v _eeprom_read_custom `(uc ~T0 @X0 0 ef1`uc ]
 "194 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"3 eeprom.c
+[v _uartBuffer `uc ~T0 @X0 -> 0 `x e ]
+"4184 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"4110
+[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S149 . RD WR WREN WRERR FREE . CFGS EEPGD ]
+"4120
+[s S150 :6 `uc 1 :1 `uc 1 ]
+[n S150 . . EEFS ]
+"4109
+[u S148 `S149 1 `S150 1 ]
+[n S148 . . . ]
+"4125
+[v _EECON1bits `VS148 ~T0 @X0 0 e@4006 ]
+"4177
+[v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
+"7311
+[s S303 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S303 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7321
+[s S304 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S304 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7331
+[s S305 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S305 . . GIEL GIEH ]
+"7310
+[u S302 `S303 1 `S304 1 `S305 1 ]
+[n S302 . . . . ]
+"7337
+[v _INTCONbits `VS302 ~T0 @X0 0 e@4082 ]
+"4170
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
 "7 config.h
 [p x OSC=IRCIO ]
 "8
@@ -3380,520 +3392,224 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;config.h: 106: int eeprom_test();
 [; ;config.h: 107: unsigned char eeprom_read_custom( unsigned char badd );
 [; ;config.h: 108: void eeprom_write_custom( unsigned char badd,unsigned int bdata );
-"2 uart.c
-[v _uartBuffer `uc ~T0 @X0 -> 8 `i e ]
-[; ;uart.c: 2: char uartBuffer[8];
-"3
-[v _recvIdx `i ~T0 @X0 1 e ]
-[i _recvIdx
--> 0 `i
-]
-[; ;uart.c: 3: int recvIdx=0;
+"2 eeprom.c
+[v _readByte `ui ~T0 @X0 1 e ]
+[; ;eeprom.c: 2: unsigned int readByte;
+[; ;eeprom.c: 3: extern char uartBuffer[];
 "4
-[v _testPWMValue `i ~T0 @X0 1 e ]
-[i _testPWMValue
--> 0 `i
-]
-[; ;uart.c: 4: int testPWMValue=0;
+[v _eeprom_test `(i ~T0 @X0 1 ef ]
 "5
-[v _ch `uc ~T0 @X0 1 s ]
-[i _ch
--> -> 122 `ui `uc
-]
-[v _ch2 `uc ~T0 @X0 1 s ]
-[i _ch2
--> -> 0 `i `uc
-]
-[; ;uart.c: 5: static unsigned char ch='z',ch2=0;
-[; ;uart.c: 6: extern unsigned char currState,prevState,state;
-"8
-[v _eusart_init `(v ~T0 @X0 1 ef4`uc`uc`ul`ui ]
-"10
 {
-[; ;uart.c: 8: void eusart_init(unsigned char usart_mode, char tx_mode,
-[; ;uart.c: 9: unsigned long fosc, unsigned int baud)
-[; ;uart.c: 10: {
-[e :U _eusart_init ]
-"8
-[v _usart_mode `uc ~T0 @X0 1 r1 ]
-[v _tx_mode `uc ~T0 @X0 1 r2 ]
-"9
-[v _fosc `ul ~T0 @X0 1 r3 ]
-[v _baud `ui ~T0 @X0 1 r4 ]
-"10
+[; ;eeprom.c: 4: int eeprom_test()
+[; ;eeprom.c: 5: {
+[e :U _eeprom_test ]
 [f ]
-[; ;uart.c: 11: TRISC6 = 0;
-"11
-[e = _TRISC6 -> -> 0 `i `b ]
-[; ;uart.c: 12: TRISC7 = 1;
-"12
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;uart.c: 14: switch(usart_mode)
-"14
-[e $U 316  ]
-[; ;uart.c: 15: {
-"15
-{
-[; ;uart.c: 16: case 0:
-"16
-[e :U 317 ]
-[; ;uart.c: 17: {
-"17
-{
-[; ;uart.c: 18: BRG16 = 0;
-"18
-[e = _BRG16 -> -> 0 `i `b ]
-[; ;uart.c: 19: BAUDCTL = 0b00000000;
-"19
-[e = _BAUDCTL -> -> 0 `i `uc ]
-[; ;uart.c: 22: SPBRG =51;
-"22
-[e = _SPBRG -> -> 51 `i `uc ]
-[; ;uart.c: 24: TXSTA = 0b00100100;
-"24
-[e = _TXSTA -> -> 36 `i `uc ]
-[; ;uart.c: 25: RCSTA = 0x90;
-"25
-[e = _RCSTA -> -> 144 `i `uc ]
-[; ;uart.c: 26: break;
-"26
-[e $U 315  ]
-"27
-}
-[; ;uart.c: 27: }
-[; ;uart.c: 28: case 1:
-"28
-[e :U 318 ]
-[; ;uart.c: 29: {
-"29
-{
-[; ;uart.c: 30: break;
-"30
-[e $U 315  ]
-"31
-}
-[; ;uart.c: 31: }
-[; ;uart.c: 32: case 2:
-"32
-[e :U 319 ]
-[; ;uart.c: 33: {
+"6
+[v _ch `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 6: unsigned char ch=(unsigned char)1,address=0x01;
+[e = _ch -> -> 1 `i `uc ]
+[v _address `uc ~T0 @X0 1 a ]
+[e = _address -> -> 1 `i `uc ]
+"7
+[v _i `i ~T0 @X0 1 a ]
+[; ;eeprom.c: 7: int i=0;
+[e = _i -> 0 `i ]
+[; ;eeprom.c: 8: EEPGD=0;
+"8
+[e = _EEPGD -> -> 0 `i `b ]
+[; ;eeprom.c: 9: CFGS=0;
+"9
+[e = _CFGS -> -> 0 `i `b ]
+[; ;eeprom.c: 10: debug("writing values");
+"10
+[e ( _debug (1 -> :s 1C `*uc ]
+[; ;eeprom.c: 33: for(i=0;i<250;i++)
 "33
 {
-[; ;uart.c: 34: break;
+[e = _i -> 0 `i ]
+[e $ < _i -> 250 `i 315  ]
+[e $U 316  ]
 "34
-[e $U 315  ]
-"35
-}
-"36
-}
-[; ;uart.c: 35: }
-[; ;uart.c: 36: }
-[e $U 315  ]
-"14
-[e :U 316 ]
-[e [\ _usart_mode , $ -> -> 0 `i `uc 317
- , $ -> -> 1 `i `uc 318
- , $ -> -> 2 `i `uc 319
- 315 ]
-"36
 [e :U 315 ]
-[; ;uart.c: 37: }
+[; ;eeprom.c: 34: {
+{
+[; ;eeprom.c: 35: eeprom_write_custom(address,i);
+"35
+[e ( _eeprom_write_custom (2 , _address -> _i `ui ]
+[; ;eeprom.c: 36: delay(9000);
+"36
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 37: delay(9000);
 "37
-[e :UE 314 ]
-}
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 38: delay(9000);
+"38
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 39: ch++;
 "39
-[v _uart_send_byte `(v ~T0 @X0 1 ef1`uc ]
+[e ++ _ch -> -> 1 `i `uc ]
+[; ;eeprom.c: 40: address++;
 "40
-{
-[; ;uart.c: 39: void uart_send_byte(unsigned char byte)
-[; ;uart.c: 40: {
-[e :U _uart_send_byte ]
-"39
-[v _byte `uc ~T0 @X0 1 r1 ]
-"40
-[f ]
-[; ;uart.c: 41: while(!TXIF)
+[e ++ _address -> -> 1 `i `uc ]
 "41
-[e $U 321  ]
-[e :U 322 ]
-[; ;uart.c: 42: {
+}
+"33
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 250 `i 315  ]
+[e :U 316 ]
+"41
+}
+[; ;eeprom.c: 41: }
+[; ;eeprom.c: 42: debug("reading values\n");
 "42
-{
-[; ;uart.c: 43: continue;
+[e ( _debug (1 -> :s 2C `*uc ]
+[; ;eeprom.c: 43: delay(9000);
 "43
-[e $U 321  ]
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 44: for(i=0,address=0x01;i<250;i++,address++)
 "44
-}
-[e :U 321 ]
-"41
-[e $ ! _TXIF 322  ]
-[e :U 323 ]
-[; ;uart.c: 44: }
-[; ;uart.c: 45: TXREG = byte;
+{
+[e ; = _i -> 0 `i = _address -> -> 1 `i `uc ]
+[e $ < _i -> 250 `i 318  ]
+[e $U 319  ]
 "45
-[e = _TXREG _byte ]
-[; ;uart.c: 46: delay(1000);
+[e :U 318 ]
+[; ;eeprom.c: 45: {
+{
+[; ;eeprom.c: 46: ch = eeprom_read_custom(address);
 "46
-[e ( _delay (1 -> 1000 `i ]
-[; ;uart.c: 47: }
-"47
-[e :UE 320 ]
-}
+[e = _ch ( _eeprom_read_custom (1 _address ]
+[; ;eeprom.c: 48: sprintf(uartBuffer,"%x",readByte);
 "48
-[v _uart_recv_byte `(uc ~T0 @X0 1 ef1`uc ]
+[e ( _sprintf (1 , (. , &U _uartBuffer :s 3C _readByte ]
+[; ;eeprom.c: 49: debug(uartBuffer);
 "49
-{
-[; ;uart.c: 48: unsigned char uart_recv_byte(char flag)
-[; ;uart.c: 49: {
-[e :U _uart_recv_byte ]
-"48
-[v _flag `uc ~T0 @X0 1 r1 ]
-"49
-[f ]
-[; ;uart.c: 50: while(!RCIF)
+[e ( _debug (1 &U _uartBuffer ]
+[; ;eeprom.c: 50: delay(9000);
 "50
-[e $U 325  ]
-[e :U 326 ]
-[; ;uart.c: 51: {
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 51: delay(9000);
 "51
-{
-[; ;uart.c: 52: continue;
+[e ( _delay (1 -> 9000 `i ]
+[; ;eeprom.c: 52: delay(9000);
 "52
-[e $U 325  ]
+[e ( _delay (1 -> 9000 `i ]
 "53
 }
-[e :U 325 ]
-"50
-[e $ ! _RCIF 326  ]
-[e :U 327 ]
-[; ;uart.c: 53: }
-[; ;uart.c: 54: ch2 = RCREG;
+"44
+[e ; ++ _i -> 1 `i ++ _address -> -> 1 `i `uc ]
+[e $ < _i -> 250 `i 318  ]
+[e :U 319 ]
+"53
+}
+[; ;eeprom.c: 53: }
+[; ;eeprom.c: 54: debug("\n");
 "54
-[e = _ch2 _RCREG ]
-[; ;uart.c: 55: return ch2;
-"55
-[e ) _ch2 ]
-[e $UE 324  ]
-[; ;uart.c: 56: }
-"56
-[e :UE 324 ]
-}
-"57
-[v _debug `(v ~T0 @X0 1 ef1`*uc ]
-"58
-{
-[; ;uart.c: 57: void debug(char *str)
-[; ;uart.c: 58: {
-[e :U _debug ]
-"57
-[v _str `*uc ~T0 @X0 1 r1 ]
-"58
-[f ]
-"59
-[v _len `i ~T0 @X0 1 a ]
-[; ;uart.c: 59: int len=0,i=0;
-[e = _len -> 0 `i ]
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[; ;uart.c: 60: len=strlen(str);
-"60
-[e = _len -> ( _strlen (1 -> _str `*Cuc `i ]
-[; ;uart.c: 61: for(i=0;i<len;i++)
-"61
-{
-[e = _i -> 0 `i ]
-[e $U 332  ]
-"62
-[e :U 329 ]
-[; ;uart.c: 62: {
-{
-[; ;uart.c: 63: uart_send_byte(str[i]);
-"63
-[e ( _uart_send_byte (1 *U + _str * -> _i `x -> -> # *U _str `i `x ]
-[; ;uart.c: 64: __nop;
-"64
-[e &U ___nop ]
-[; ;uart.c: 65: __nop;
-"65
-[e &U ___nop ]
-[; ;uart.c: 66: delay(100);
-"66
-[e ( _delay (1 -> 100 `i ]
-"67
-}
-"61
-[e ++ _i -> 1 `i ]
-[e :U 332 ]
-[e $ < _i _len 329  ]
-[e :U 330 ]
-"67
-}
-[; ;uart.c: 67: }
-[; ;uart.c: 68: uart_send_byte('\n');
-"68
-[e ( _uart_send_byte (1 -> -> 10 `ui `uc ]
-[; ;uart.c: 69: delay(100);
-"69
-[e ( _delay (1 -> 100 `i ]
-[; ;uart.c: 70: }
-"70
-[e :UE 328 ]
-}
-"71
-[v _processSerialData `(v ~T0 @X0 1 ef ]
-"72
-{
-[; ;uart.c: 71: void processSerialData()
-[; ;uart.c: 72: {
-[e :U _processSerialData ]
-[f ]
-[; ;uart.c: 73: ch=uart_recv_byte(0x01);
-"73
-[e = _ch ( _uart_recv_byte (1 -> -> 1 `i `uc ]
-[; ;uart.c: 74: if(ch=='#')
-"74
-[e $ ! == -> _ch `ui -> 35 `ui 334  ]
-[; ;uart.c: 75: {
-"75
-{
-[; ;uart.c: 76: for(recvIdx=0;recvIdx<8;recvIdx++)
-"76
-{
-[e = _recvIdx -> 0 `i ]
-[e $ < _recvIdx -> 8 `i 335  ]
-[e $U 336  ]
-"77
-[e :U 335 ]
-[; ;uart.c: 77: uartBuffer[recvIdx]='\0';
-[e = *U + &U _uartBuffer * -> -> _recvIdx `ui `ux -> -> # *U &U _uartBuffer `ui `ux -> -> 0 `ui `uc ]
-"76
-[e ++ _recvIdx -> 1 `i ]
-[e $ < _recvIdx -> 8 `i 335  ]
-[e :U 336 ]
-"77
-}
-[; ;uart.c: 78: recvIdx = 0;
-"78
-[e = _recvIdx -> 0 `i ]
-[; ;uart.c: 79: while(1)
-"79
-[e :U 339 ]
-[; ;uart.c: 80: {
-"80
-{
-[; ;uart.c: 81: ch=uart_recv_byte(0x00);
-"81
-[e = _ch ( _uart_recv_byte (1 -> -> 0 `i `uc ]
-[; ;uart.c: 82: if(ch=='$')
-"82
-[e $ ! == -> _ch `ui -> 36 `ui 341  ]
-[; ;uart.c: 83: break;
-"83
-[e $U 340  ]
-[e $U 342  ]
-"84
-[e :U 341 ]
-[; ;uart.c: 84: else if(ch=='X')
-[e $ ! == -> _ch `ui -> 88 `ui 343  ]
-[; ;uart.c: 85: {
-"85
-{
-[; ;uart.c: 86: debug("change to default mode");
-"86
-[e ( _debug (1 -> :s 1C `*uc ]
-[; ;uart.c: 87: state = 0xFE;
-"87
-[e = _state -> -> 254 `i `uc ]
-"88
-}
-[; ;uart.c: 88: }
-[e $U 344  ]
-"89
-[e :U 343 ]
-[; ;uart.c: 89: else if(ch=='\0')
-[e $ ! == -> _ch `ui -> 0 `ui 345  ]
-[; ;uart.c: 90: continue;
-"90
-[e $U 338  ]
-[e $U 346  ]
-"91
-[e :U 345 ]
-[; ;uart.c: 91: else
-[; ;uart.c: 92: uartBuffer[recvIdx]=ch;
-"92
-[e = *U + &U _uartBuffer * -> -> _recvIdx `ui `ux -> -> # *U &U _uartBuffer `ui `ux _ch ]
-[e :U 346 ]
-[e :U 344 ]
-[e :U 342 ]
-[; ;uart.c: 94: if(recvIdx > 8-1)
-"94
-[e $ ! > _recvIdx - -> 8 `i -> 1 `i 347  ]
-[; ;uart.c: 95: {
-"95
-{
-[; ;uart.c: 96: debug("Invalid data.");
-"96
-[e ( _debug (1 -> :s 2C `*uc ]
-[; ;uart.c: 97: debug("change to default mode");
-"97
-[e ( _debug (1 -> :s 3C `*uc ]
-[; ;uart.c: 98: state = 0xFE;
-"98
-[e = _state -> -> 254 `i `uc ]
-"99
-}
-[; ;uart.c: 99: }
-[e $U 348  ]
-"100
-[e :U 347 ]
-[; ;uart.c: 100: else
-[; ;uart.c: 101: recvIdx++;
-"101
-[e ++ _recvIdx -> 1 `i ]
-[e :U 348 ]
-[; ;uart.c: 102: __nop();
-"102
-[e ( ___nop ..  ]
-[; ;uart.c: 103: __nop();
-"103
-[e ( ___nop ..  ]
-[; ;uart.c: 104: __nop();
-"104
-[e ( ___nop ..  ]
-[; ;uart.c: 105: delay(9000);
-"105
-[e ( _delay (1 -> 9000 `i ]
-"106
-}
-[e :U 338 ]
-"79
-[e $U 339  ]
-[e :U 340 ]
-"107
-}
-[e :U 334 ]
-[; ;uart.c: 106: }
-[; ;uart.c: 107: }
-[; ;uart.c: 109: }
-"109
-[e :UE 333 ]
-}
-"110
-[v _changeMode `(v ~T0 @X0 1 ef ]
-"111
-{
-[; ;uart.c: 110: void changeMode()
-[; ;uart.c: 111: {
-[e :U _changeMode ]
-[f ]
-[; ;uart.c: 112: if((uartBuffer[0]=='T'))
-"112
-[e $ ! == -> *U + &U _uartBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 84 `ui 350  ]
-[; ;uart.c: 113: {
-"113
-{
-[; ;uart.c: 114: debug("entering test mode");
-"114
 [e ( _debug (1 -> :s 4C `*uc ]
-[; ;uart.c: 115: state = 0x01;
-"115
-[e = _state -> -> 1 `i `uc ]
-"116
-}
-[; ;uart.c: 116: }
-[e $U 351  ]
-"117
-[e :U 350 ]
-[; ;uart.c: 117: else if((uartBuffer[0]=='S')&&(uartBuffer[1]=='E')&&(uartBuffer[2]=='T'))
-[e $ ! && && == -> *U + &U _uartBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 83 `ui == -> *U + &U _uartBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 69 `ui == -> *U + &U _uartBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 84 `ui 352  ]
-[; ;uart.c: 118: {
-"118
-{
-[; ;uart.c: 119: debug("entering set mode");
-"119
+[; ;eeprom.c: 55: debug("reading done");
+"55
 [e ( _debug (1 -> :s 5C `*uc ]
-[; ;uart.c: 120: state= 0x02;
-"120
-[e = _state -> -> 2 `i `uc ]
-"121
+[; ;eeprom.c: 56: return 1;
+"56
+[e ) -> 1 `i ]
+[e $UE 314  ]
+[; ;eeprom.c: 57: }
+"57
+[e :UE 314 ]
 }
-[; ;uart.c: 121: }
-[e $U 353  ]
-"122
-[e :U 352 ]
-[; ;uart.c: 122: else if((uartBuffer[0]=='F')&&(uartBuffer[1]=='I')&&(uartBuffer[2]=='N'))
-[e $ ! && && == -> *U + &U _uartBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 70 `ui == -> *U + &U _uartBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 73 `ui == -> *U + &U _uartBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `ui -> 78 `ui 354  ]
-[; ;uart.c: 123: {
-"123
+"58
+[v _eeprom_read_custom `(uc ~T0 @X0 1 ef1`uc ]
+"59
 {
-[; ;uart.c: 124: debug("Going to Default Mode");
-"124
-[e ( _debug (1 -> :s 6C `*uc ]
-[; ;uart.c: 125: state= 0xFE;
-"125
-[e = _state -> -> 254 `i `uc ]
-"126
-}
-[; ;uart.c: 126: }
-[e $U 355  ]
-"127
-[e :U 354 ]
-[; ;uart.c: 127: else
-[; ;uart.c: 128: {
-"128
-{
-[; ;uart.c: 130: state = 0xFE;
-"130
-[e = _state -> -> 254 `i `uc ]
-"131
-}
-[e :U 355 ]
-[e :U 353 ]
-[e :U 351 ]
-[; ;uart.c: 131: }
-[; ;uart.c: 132: }
-"132
-[e :UE 349 ]
-}
-"133
-[v _getPWMvalue `(v ~T0 @X0 1 ef ]
-"134
-{
-[; ;uart.c: 133: void getPWMvalue()
-[; ;uart.c: 134: {
-[e :U _getPWMvalue ]
+[; ;eeprom.c: 58: unsigned char eeprom_read_custom( unsigned char badd )
+[; ;eeprom.c: 59: {
+[e :U _eeprom_read_custom ]
+"58
+[v _badd `uc ~T0 @X0 1 r1 ]
+"59
 [f ]
-[; ;uart.c: 135: debug("Enter PWM Value");
-"135
-[e ( _debug (1 -> :s 7C `*uc ]
-[; ;uart.c: 136: __nop;
-"136
-[e &U ___nop ]
-[; ;uart.c: 137: delay(9000);
-"137
-[e ( _delay (1 -> 9000 `i ]
-[; ;uart.c: 138: processSerialData();
-"138
-[e ( _processSerialData ..  ]
-[; ;uart.c: 139: memcpy(&testPWMValue,&uartBuffer[0],4);
-"139
-[e ( _memcpy (3 , , -> &U _testPWMValue `*v -> &U *U + &U _uartBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _uartBuffer `ui `ux `*Cv -> -> 4 `i `ui ]
-[; ;uart.c: 140: sprintf(uartBuffer,"b:%d",testPWMValue);
-"140
-[e ( _sprintf (1 , (. , &U _uartBuffer :s 8C _testPWMValue ]
-[; ;uart.c: 141: debug(uartBuffer);
-"141
-[e ( _debug (1 &U _uartBuffer ]
-[; ;uart.c: 144: }
-"144
-[e :UE 356 ]
+[; ;eeprom.c: 60: EEADR = (badd & 0x0ff);
+"60
+[e = _EEADR -> & -> _badd `i -> 255 `i `uc ]
+[; ;eeprom.c: 61: EECON1bits.CFGS = 0;
+"61
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;eeprom.c: 62: EECON1bits.EEPGD = 0;
+"62
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;eeprom.c: 63: EECON1bits.RD = 1;
+"63
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+[; ;eeprom.c: 64: readByte = EEDATA;
+"64
+[e = _readByte -> _EEDATA `ui ]
+[; ;eeprom.c: 65: return 1;
+"65
+[e ) -> -> 1 `i `uc ]
+[e $UE 321  ]
+[; ;eeprom.c: 66: }
+"66
+[e :UE 321 ]
 }
-[p f _sprintf 8388736 ]
-[a 7C 69 110 116 101 114 32 80 87 77 32 86 97 108 117 101 0 ]
-[a 4C 101 110 116 101 114 105 110 103 32 116 101 115 116 32 109 111 100 101 0 ]
-[a 1C 99 104 97 110 103 101 32 116 111 32 100 101 102 97 117 108 116 32 109 111 100 101 0 ]
-[a 3C 99 104 97 110 103 101 32 116 111 32 100 101 102 97 117 108 116 32 109 111 100 101 0 ]
-[a 5C 101 110 116 101 114 105 110 103 32 115 101 116 32 109 111 100 101 0 ]
-[a 6C 71 111 105 110 103 32 116 111 32 68 101 102 97 117 108 116 32 77 111 100 101 0 ]
-[a 8C 98 58 37 100 0 ]
-[a 2C 73 110 118 97 108 105 100 32 100 97 116 97 46 0 ]
+"67
+[v _eeprom_write_custom `(v ~T0 @X0 1 ef2`uc`Bui ]
+"68
+{
+[; ;eeprom.c: 67: void eeprom_write_custom( unsigned char badd,unsigned int data )
+[; ;eeprom.c: 68: {
+[e :U _eeprom_write_custom ]
+"67
+[v _badd `uc ~T0 @X0 1 r1 ]
+[v _data `ui ~T0 @X0 1 r2 ]
+"68
+[f ]
+[; ;eeprom.c: 70: EEADR = (badd & 0x0ff);
+"70
+[e = _EEADR -> & -> _badd `i -> 255 `i `uc ]
+[; ;eeprom.c: 72: EEDATA =data;
+"72
+[e = _EEDATA -> _data `uc ]
+[; ;eeprom.c: 73: EECON1bits.EEPGD = 0;
+"73
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;eeprom.c: 74: EECON1bits.CFGS = 0;
+"74
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;eeprom.c: 75: EECON1bits.WREN = 1;
+"75
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;eeprom.c: 76: INTCONbits.GIE = 0;
+"76
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;eeprom.c: 77: EECON2 = 0x55;
+"77
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;eeprom.c: 78: EECON2 = 0xAA;
+"78
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;eeprom.c: 79: EECON1bits.WR = 1;
+"79
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;eeprom.c: 80: while(EECON1bits.WR);
+"80
+[e $U 323  ]
+[e :U 324 ]
+[e :U 323 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 324  ]
+[e :U 325 ]
+[; ;eeprom.c: 81: INTCONbits.GIE = 1;
+"81
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;eeprom.c: 82: EECON1bits.WREN = 0;
+"82
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;eeprom.c: 83: }
+"83
+[e :UE 322 ]
+}
+[p f _sprintf 12582912 ]
+[a 3C 37 120 0 ]
+[a 1C 119 114 105 116 105 110 103 32 118 97 108 117 101 115 0 ]
+[a 5C 114 101 97 100 105 110 103 32 100 111 110 101 0 ]
+[a 2C 114 101 97 100 105 110 103 32 118 97 108 117 101 115 10 0 ]
+[a 4C 10 0 ]

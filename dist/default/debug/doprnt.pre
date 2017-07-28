@@ -262,6 +262,12 @@ const static unsigned int dpowers[] = {1, 10, 100, 1000, 10000,
 # 359
 };
 
+
+const static unsigned int hexpowers[] = {1, 0x10, 0x100, 0x1000,
+
+# 366
+};
+
 # 455
 int
 
@@ -317,6 +323,14 @@ case 'd':
 case 'i':
 break;
 
+# 718
+case 'x':
+
+
+flag |= 0x80;
+
+break;
+
 # 802
 default:
 
@@ -326,7 +340,9 @@ continue;
 # 822
 }
 
-# 1253
+# 1251
+if((flag & 0x80) == 0x00)
+
 {
 
 # 1259
@@ -339,10 +355,45 @@ val = -val;
 
 }
 
+else
+
+
+
+
+{
+
+# 1286
+val = (*(unsigned *)__va_arg((*(unsigned **)ap), (unsigned)0));
+}
+
+# 1294
+switch((unsigned char)(flag & 0x80)) {
+
+
+
+
+case 0x00:
+
 # 1305
 for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
 if(val < dpowers[c])
 break;
+
+break;
+
+
+
+
+case 0x80:
+
+for(c = 1 ; c != sizeof hexpowers/sizeof hexpowers[0] ; c++)
+if(val < hexpowers[c])
+break;
+
+break;
+
+# 1336
+}
 
 # 1422
 {
@@ -359,11 +410,32 @@ prec = c;
 
 while(prec--) {
 
-# 1478
+switch((unsigned char)(flag & 0x80))
+
 {
+
+
+
+
+case 0x00:
 
 # 1489
 c = (val / dpowers[prec]) % 10 + '0';
+
+break;
+
+# 1497
+case 0x80:
+
+{
+unsigned char idx = (val / hexpowers[prec]) & 0xF;
+
+# 1506
+c = "0123456789abcdef"[idx];
+
+}
+
+break;
 
 # 1523
 }

@@ -1,5 +1,5 @@
 
-# 1 "uart.c"
+# 1 "eeprom.c"
 
 
 # 7 "config.h"
@@ -4617,148 +4617,66 @@ int eeprom_test();
 unsigned char eeprom_read_custom( unsigned char badd );
 void eeprom_write_custom( unsigned char badd,unsigned int bdata );
 
-# 2 "uart.c"
-char uartBuffer[8];
-int recvIdx=0;
-int testPWMValue=0;
-static unsigned char ch='z',ch2=0;
-extern unsigned char currState,prevState,state;
+# 2 "eeprom.c"
+unsigned int readByte;
+extern char uartBuffer[];
+int eeprom_test()
+{
+unsigned char ch=(unsigned char)1,address=0x01;
+int i=0;
+EEPGD=0;
+CFGS=0;
+debug("writing values");
 
-void eusart_init(unsigned char usart_mode, char tx_mode,
-unsigned long fosc, unsigned int baud)
+# 33
+for(i=0;i<250;i++)
 {
-TRISC6 = 0;
-TRISC7 = 1;
-
-switch(usart_mode)
-{
-case 0:
-{
-BRG16 = 0;
-BAUDCTL = 0b00000000;
-
-
-SPBRG =51;
-
-TXSTA = 0b00100100;
-RCSTA = 0x90;
-break;
-}
-case 1:
-{
-break;
-}
-case 2:
-{
-break;
-}
-}
-}
-
-void uart_send_byte(unsigned char byte)
-{
-while(!TXIF)
-{
-continue;
-}
-TXREG = byte;
-delay(1000);
-}
-unsigned char uart_recv_byte(char flag)
-{
-while(!RCIF)
-{
-continue;
-}
-ch2 = RCREG;
-return ch2;
-}
-void debug(char *str)
-{
-int len=0,i=0;
-len=strlen(str);
-for(i=0;i<len;i++)
-{
-uart_send_byte(str[i]);
-__nop;
-__nop;
-delay(100);
-}
-uart_send_byte('\n');
-delay(100);
-}
-void processSerialData()
-{
-ch=uart_recv_byte(0x01);
-if(ch=='#')
-{
-for(recvIdx=0;recvIdx<8;recvIdx++)
-uartBuffer[recvIdx]='\0';
-recvIdx = 0;
-while(1)
-{
-ch=uart_recv_byte(0x00);
-if(ch=='$')
-break;
-else if(ch=='X')
-{
-debug("change to default mode");
-state = 0xFE;
-}
-else if(ch=='\0')
-continue;
-else
-uartBuffer[recvIdx]=ch;
-
-if(recvIdx > 8-1)
-{
-debug("Invalid data.");
-debug("change to default mode");
-state = 0xFE;
-}
-else
-recvIdx++;
-__nop();
-__nop();
-__nop();
+eeprom_write_custom(address,i);
 delay(9000);
-}
-}
-
-}
-void changeMode()
-{
-if((uartBuffer[0]=='T'))
-{
-debug("entering test mode");
-state = 0x01;
-}
-else if((uartBuffer[0]=='S')&&(uartBuffer[1]=='E')&&(uartBuffer[2]=='T'))
-{
-debug("entering set mode");
-state= 0x02;
-}
-else if((uartBuffer[0]=='F')&&(uartBuffer[1]=='I')&&(uartBuffer[2]=='N'))
-{
-debug("Going to Default Mode");
-state= 0xFE;
-}
-else
-{
-
-state = 0xFE;
-}
-}
-void getPWMvalue()
-{
-debug("Enter PWM Value");
-__nop;
 delay(9000);
-processSerialData();
-memcpy(&testPWMValue,&uartBuffer[0],4);
-sprintf(uartBuffer,"b:%d",testPWMValue);
+delay(9000);
+ch++;
+address++;
+}
+debug("reading values\n");
+delay(9000);
+for(i=0,address=0x01;i<250;i++,address++)
+{
+ch = eeprom_read_custom(address);
+
+sprintf(uartBuffer,"%x",readByte);
 debug(uartBuffer);
-
-
+delay(9000);
+delay(9000);
+delay(9000);
 }
+debug("\n");
+debug("reading done");
+return 1;
+}
+unsigned char eeprom_read_custom( unsigned char badd )
+{
+EEADR = (badd & 0x0ff);
+EECON1bits.CFGS = 0;
+EECON1bits.EEPGD = 0;
+EECON1bits.RD = 1;
+readByte = EEDATA;
+return 1;
+}
+void eeprom_write_custom( unsigned char badd,unsigned int data )
+{
 
+EEADR = (badd & 0x0ff);
+
+EEDATA =data;
+EECON1bits.EEPGD = 0;
+EECON1bits.CFGS = 0;
+EECON1bits.WREN = 1;
+INTCONbits.GIE = 0;
+EECON2 = 0x55;
+EECON2 = 0xAA;
+EECON1bits.WR = 1;
+while(EECON1bits.WR);
+INTCONbits.GIE = 1;
+EECON1bits.WREN = 0;
+}

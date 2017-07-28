@@ -4613,6 +4613,9 @@ void state_machine();
 void getPWMvalue();
 void changeMode();
 void delay(int);
+int eeprom_test();
+unsigned char eeprom_read_custom( unsigned char badd );
+void eeprom_write_custom( unsigned char badd,unsigned int bdata );
 
 # 10 "main.c"
 void delay(int count);
@@ -4684,10 +4687,11 @@ PTMRH =0x09;
 PTCON1 =0x80;
 
 eusart_init(0, 0, 8000000UL, 9600);
+eeprom_test();
 while(1)
 {
 
-# 133
+# 134
 processSerialData();
 changeMode();
 state_machine();

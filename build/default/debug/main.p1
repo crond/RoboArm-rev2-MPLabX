@@ -34,10 +34,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PTCON1 `Vuc ~T0 @X0 0 e@3966 ]
 "96 config.h
 [v _eusart_init `(v ~T0 @X0 0 ef4`uc`uc`ul`ui ]
-"99
-[v _uart_recv_byte `(uc ~T0 @X0 0 ef1`uc ]
-"98
-[v _uart_send_byte `(v ~T0 @X0 0 ef1`uc ]
+"106
+[v _eeprom_test `(i ~T0 @X0 0 ef ]
+"101
+[v _processSerialData `(v ~T0 @X0 0 ef ]
+"104
+[v _changeMode `(v ~T0 @X0 0 ef ]
+"102
+[v _state_machine `(v ~T0 @X0 0 ef ]
 "103
 [v _getPWMvalue `(v ~T0 @X0 0 ef ]
 "1040 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f4431.h
@@ -3400,6 +3404,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;config.h: 103: void getPWMvalue();
 [; ;config.h: 104: void changeMode();
 [; ;config.h: 105: void delay(int);
+[; ;config.h: 106: int eeprom_test();
+[; ;config.h: 107: unsigned char eeprom_read_custom( unsigned char badd );
+[; ;config.h: 108: void eeprom_write_custom( unsigned char badd,unsigned int bdata );
 [; ;main.c: 10: void delay(int count);
 [; ;main.c: 11: void Load_Base();
 "14 main.c
@@ -3417,40 +3424,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _Load_Base ]
 [f ]
 "28
-[v F3597 `uc ~T0 @X0 1 s i ]
-[i F3597
+[v F3603 `uc ~T0 @X0 1 s i ]
+[i F3603
 -> -> 0 `i `uc
 ]
-[v F3598 `uc ~T0 @X0 1 s direction ]
-[i F3598
+[v F3604 `uc ~T0 @X0 1 s direction ]
+[i F3604
 -> -> 1 `i `uc
 ]
 "29
-[v F3599 `uc ~T0 @X0 1 s value ]
-[i F3599
+[v F3605 `uc ~T0 @X0 1 s value ]
+[i F3605
 -> -> 5 `i `uc
 ]
 [; ;main.c: 28: static char i=0,direction=1;
 [; ;main.c: 29: static char value=0x05;
 [; ;main.c: 31: if(direction == 1)
 "31
-[e $ ! == -> F3598 `i -> 1 `i 315  ]
+[e $ ! == -> F3604 `i -> 1 `i 315  ]
 [; ;main.c: 32: {
 "32
 {
 [; ;main.c: 33: if(value < 0x11)
 "33
-[e $ ! < -> F3599 `i -> 17 `i 316  ]
+[e $ ! < -> F3605 `i -> 17 `i 316  ]
 [; ;main.c: 34: value = value + 1;
 "34
-[e = F3599 -> + -> F3599 `i -> 1 `i `uc ]
+[e = F3605 -> + -> F3605 `i -> 1 `i `uc ]
 [e $U 317  ]
 "35
 [e :U 316 ]
 [; ;main.c: 35: else
 [; ;main.c: 36: direction = 2;
 "36
-[e = F3598 -> -> 2 `i `uc ]
+[e = F3604 -> -> 2 `i `uc ]
 [e :U 317 ]
 "37
 }
@@ -3462,17 +3469,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 39: if(value > 0x05)
 "39
-[e $ ! > -> F3599 `i -> 5 `i 319  ]
+[e $ ! > -> F3605 `i -> 5 `i 319  ]
 [; ;main.c: 40: value = value - 1;
 "40
-[e = F3599 -> - -> F3599 `i -> 1 `i `uc ]
+[e = F3605 -> - -> F3605 `i -> 1 `i `uc ]
 [e $U 320  ]
 "41
 [e :U 319 ]
 [; ;main.c: 41: else
 [; ;main.c: 42: direction = 1;
 "42
-[e = F3598 -> -> 1 `i `uc ]
+[e = F3604 -> -> 1 `i `uc ]
 [e :U 320 ]
 "43
 }
@@ -3480,7 +3487,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 43: }
 [; ;main.c: 46: CCPR2L = value;
 "46
-[e = _CCPR2L F3599 ]
+[e = _CCPR2L F3605 ]
 [; ;main.c: 47: CCP2CON = 0b00001100;
 "47
 [e = _CCP2CON -> -> 12 `i `uc ]
@@ -3586,102 +3593,108 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 125: eusart_init(0, 0, 8000000UL, 9600);
 "125
 [e ( _eusart_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> 8000000 `ul -> -> 9600 `i `ui ]
-[; ;main.c: 126: while(1)
+[; ;main.c: 126: eeprom_test();
 "126
-[e :U 328 ]
-[; ;main.c: 127: {
+[e ( _eeprom_test ..  ]
+[; ;main.c: 127: while(1)
 "127
-{
-[; ;main.c: 128: ch=uart_recv_byte(0x01);
+[e :U 328 ]
+[; ;main.c: 128: {
 "128
-[e = _ch ( _uart_recv_byte (1 -> -> 1 `i `uc ]
-[; ;main.c: 129: uart_send_byte(ch);
-"129
-[e ( _uart_send_byte (1 _ch ]
-[; ;main.c: 137: delay(9000);
-"137
-[e ( _delay (1 -> 9000 `i ]
+{
+[; ;main.c: 134: processSerialData();
+"134
+[e ( _processSerialData ..  ]
+[; ;main.c: 135: changeMode();
+"135
+[e ( _changeMode ..  ]
+[; ;main.c: 136: state_machine();
+"136
+[e ( _state_machine ..  ]
+[; ;main.c: 138: delay(9000);
 "138
+[e ( _delay (1 -> 9000 `i ]
+"139
 }
 [e :U 327 ]
-"126
+"127
 [e $U 328  ]
 [e :U 329 ]
-[; ;main.c: 138: }
-[; ;main.c: 139: return;
-"139
-[e $UE 326  ]
-[; ;main.c: 140: }
+[; ;main.c: 139: }
+[; ;main.c: 140: return;
 "140
+[e $UE 326  ]
+[; ;main.c: 141: }
+"141
 [e :UE 326 ]
 }
-"143
-[v _state_machine `(v ~T0 @X0 1 ef ]
 "144
+[v _state_machine `(v ~T0 @X0 1 ef ]
+"145
 {
-[; ;main.c: 143: void state_machine()
-[; ;main.c: 144: {
+[; ;main.c: 144: void state_machine()
+[; ;main.c: 145: {
 [e :U _state_machine ]
 [f ]
-"145
-[v F3608 `uc ~T0 @X0 1 s flag ]
-[i F3608
+"146
+[v F3614 `uc ~T0 @X0 1 s flag ]
+[i F3614
 -> -> 0 `i `uc
 ]
-[; ;main.c: 145: static char flag=0;
-[; ;main.c: 146: switch(state)
-"146
-[e $U 332  ]
-[; ;main.c: 147: {
+[; ;main.c: 146: static char flag=0;
+[; ;main.c: 147: switch(state)
 "147
-{
-[; ;main.c: 148: case 0x01:
+[e $U 332  ]
+[; ;main.c: 148: {
 "148
-[e :U 333 ]
-[; ;main.c: 149: getPWMvalue();
+{
+[; ;main.c: 149: case 0x01:
 "149
-[e ( _getPWMvalue ..  ]
-[; ;main.c: 150: break;
+[e :U 333 ]
+[; ;main.c: 150: getPWMvalue();
 "150
-[e $U 331  ]
-[; ;main.c: 151: case 0x02:
+[e ( _getPWMvalue ..  ]
+[; ;main.c: 151: break;
 "151
-[e :U 334 ]
-[; ;main.c: 152: break;
+[e $U 331  ]
+[; ;main.c: 152: case 0x02:
 "152
+[e :U 334 ]
+[; ;main.c: 153: break;
+"153
 [e $U 331  ]
-[; ;main.c: 154: default:
-"154
-[e :U 335 ]
-[; ;main.c: 155: break;
+[; ;main.c: 155: default:
 "155
-[e $U 331  ]
+[e :U 335 ]
+[; ;main.c: 156: break;
 "156
-}
-[; ;main.c: 156: }
 [e $U 331  ]
-"146
+"157
+}
+[; ;main.c: 157: }
+[e $U 331  ]
+"147
 [e :U 332 ]
 [e [\ _state , $ -> -> 1 `i `uc 333
  , $ -> -> 2 `i `uc 334
  335 ]
-"156
-[e :U 331 ]
-[; ;main.c: 157: if(flag)
 "157
-[e $ ! != -> F3608 `i -> -> -> 0 `i `uc `i 336  ]
-[; ;main.c: 158: PORTAbits.RA1=0b1;
+[e :U 331 ]
+[; ;main.c: 158: if(flag)
 "158
+[e $ ! != -> F3614 `i -> -> -> 0 `i `uc `i 336  ]
+[; ;main.c: 159: PORTAbits.RA1=0b1;
+"159
 [e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
 [e $U 337  ]
-"159
-[e :U 336 ]
-[; ;main.c: 159: else
-[; ;main.c: 160: PORTAbits.RA1=0b0;
 "160
+[e :U 336 ]
+[; ;main.c: 160: else
+[; ;main.c: 161: PORTAbits.RA1=0b0;
+"161
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
 [e :U 337 ]
-[; ;main.c: 161: }
-"161
+[; ;main.c: 162: }
+"162
 [e :UE 330 ]
 }
